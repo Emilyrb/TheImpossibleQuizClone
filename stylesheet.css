@@ -11,9 +11,10 @@ html,body{
 	display:inline-block;
 	text-align:center;
 	width:560px;
-	height:410px;
+	height:450px;
 	padding:10px;
 	margin-top:50px;
+	position:relative;
 }
 #questionText{
 	color:red;
@@ -32,8 +33,9 @@ html,body{
 	color:blue;
 	font-size:60px;
 }
-#qContainer{
-	
+.qContainer{
+	display:block;
+	margin-top:25px;
 }
 .Qs{
 	border:8px solid blue;
@@ -42,7 +44,8 @@ html,body{
 	background-color:lightpink;
 	font-size:50px;
 	display:inline-block;
-	margin:10px;
+	margin:0px 10px 10px 10px;
+	overflow:hidden;
 }
 .Qs:hover{
 	background: brown; 
@@ -53,8 +56,11 @@ html,body{
 	cursor:pointer;
 }
 #bottom{
+	position: absolute;
 	height:60px;
 	width:100%;
+    bottom: 0;
+    left: 0;
 }
 #lives{
 	color:yellow;
@@ -80,4 +86,144 @@ html,body{
 .fa-arrow-right{
 	color:gray;
 	font-size:40px;
+}
+.aSkip{
+	color:lightgreen;
+}
+#answerTo4:hover{
+	font-size:65px;
+	color:lightblue;
+	cursor:pointer;
+}
+#rightMouseHere,#leftMouseHere{
+	width:115px;
+	height:115px;
+	background-color:white;
+	border-radius:100%;
+	font-size:30px;
+	border:7px solid red;
+	display:block;
+}
+#rightMouseHere{
+	margin-right:-20px;
+	margin-top:-30px;
+	float:right;
+}
+#leftMouseHere{
+	margin-left:-30px;
+	margin-top:70px;
+}
+#notThis1,#notThis2,#notThis3,#notThis4,#notThis5,#notThis6{
+	color:red;
+	font-size:50px;
+}
+#notThis1{ 
+	top:250px;
+	left:300px;
+}
+#notThis2{
+	bottom:90px;
+	right:80px;
+}
+#notThis3{
+	right:40px;
+	top:80px;
+}
+#notThis4{
+	bottom:50px;
+	left:0px;
+	font-size:70px;
+}
+#notThis5{
+	top:230px;
+	left:70px;
+}
+#notThis6{
+	font-size:100px;
+}
+#hiddenCorrect{
+	color:lightgreen;
+	font-size:50px;
+	top:120px;
+	left:200px;
+}
+#notThis1,#notThis2,#notThis3,#notThis4,#notThis5,#notThis6,#hiddenCorrect{
+	position:absolute;
+	cursor:pointer;
+	opacity:0;
+}
+#notThis1:hover,#notThis2:hover,#notThis3:hover,#notThis4:hover,#notThis5:hover,#notThis6:hover,#hiddenCorrect:hover{
+	opacity:1;
+}
+#tenOne,#tenTwo,#tenThree,#tenFour,#tenFive{
+	cursor:pointer;
+	width:100px;
+	height:200px;
+	font-size:50px;
+	display:inline-block;
+	position:relative;
+}
+#tenOne{
+
+}
+#tenTwo{
+	
+}
+#tenThree{
+
+}
+#tenFour{
+
+}
+#tenFive{
+
+}
+#wrong{
+	position:absolute;
+	height:180px;
+	width:270px;
+	border:10px solid red;
+	background-color:black;
+	font-size:70px;
+	color:white;
+	bottom:50px;
+	display:none;
+}
+#red{
+	color:red;
+}
+#gameOverScreen{
+	display:none;
+	position:relative;
+	z-index:2;
+	width:560px;
+	height:450px;
+	background-color:black;
+	font-size:100px;
+	color:green;
+	text-shadow:
+		-3px -3px 0 lightgreen,
+		3px -3px 0 lightgreen,
+		-3px 3px 0 lightgreen,
+		3px 3px 0 lightgreen;  
+}
+#againGameOver:hover{
+	cursor:pointer;
+	color:red;
+	text-shadow:
+		-3px -3px 0 pink,
+		3px -3px 0 pink,
+		-3px 3px 0 pink,
+		3px 3px 0 pink;  
+}
+#redGameOver{
+	display:block;
+	font-size:120px;
+	font-weight:900;
+	color:red;
+	text-shadow:
+		-3px -3px 0 darkred,
+		3px -3px 0 darkred,
+		-3px 3px 0 darkred,
+		3px 3px 0 darkred;  
 }

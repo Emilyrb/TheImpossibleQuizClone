@@ -4,6 +4,7 @@ $(document).ready(function () {
 	var noSkips = 7;
 	var skips = 0;
 	var cantTouch = false;
+	
 	function roomLevel(){
 		switch(level){
 			case 1:
@@ -32,6 +33,7 @@ $(document).ready(function () {
 				break;
 			case 9:
 				lvNine()
+				break;
 			case 10:
 				lvTen()
 				break;
@@ -43,7 +45,18 @@ $(document).ready(function () {
 		}
 	}
 	roomLevel()
-	
+	function restart(){
+		$('#q1,#q2,#q3,#q4').css({'font-size':'50px','font-family':'Patrick Hand SC, cursive','color':'black'});
+		$('#gameOverScreen').hide();
+		$('#leftMouseHere,#rightMouseHere,#notThis1,#notThis2,#notThis3,#notThis4,#notThis5,#notThis6,#hiddenCorrect,.sec,#tenOne,#tenTwo,#tenThree,#tenFour,#tenFive').remove();
+		$('.Qs,.qContainer').show();
+		level = 1;
+		liveCount = 3;
+		noSkips = 7;
+		skips = 0;
+		cantTouch = false;
+		roomLevel();
+	}
 	function lvOne(){
 		$('#questionText').html('1.');
 		$('#titleText').html('HOW MANY HOLES IN A POLO?');
@@ -91,10 +104,6 @@ $(document).ready(function () {
 	function lvFive(){
 		$('#leftMouseHere').remove();
 		$('#rightMouseHere').remove();
-		$('#q1').css({'font-size':'50px','color':'black'});
-		$('#q2').css({'font-size':'50px','color':'black'});
-		$('#q3').css({'font-size':'50px','color':'black'});
-		$('#q4').css({'font-size':'50px','color':'black'});
 		$('#questionText').html('5.');
 		$('#titleText').html('PUT THE MOUSE......<br/> ..... ON HERE');
 		$('#bottom').before('<div id="rightMouseHere">Here</div>')
@@ -111,10 +120,10 @@ $(document).ready(function () {
 		$('#game').css({'overflow':'visible','background':'white'});
 		$('#questionText').html('6.');
 		$('#titleText').html('√ONION');
-		$('#q1').html('28');
-		$('#q2').html('CARROT');
-		$('#q3').html('SHALLOTS');
-		$('#q4').html('π');
+		$('#q1').html('28').css({'font-size':'50px','color':'black'});
+		$('#q2').html('CARROT').css({'font-size':'50px','color':'black'});
+		$('#q3').html('SHALLOTS').css({'font-size':'50px','color':'black'});
+		$('#q4').html('π').css({'font-size':'50px','color':'black'});
 		$('#liveText').html(liveCount);
 		$('#skips').html('<i class="fa fa-arrow-right aSkip" aria-hidden="true"></i>'.repeat(skips) + '<i class="fa fa-arrow-right" aria-hidden="true"></i>'.repeat(noSkips));
 		checkForLives()
@@ -145,37 +154,35 @@ $(document).ready(function () {
 		$('#notThis1,#notThis2,#notThis3,#notThis4,#notThis5,#notThis6,#hiddenCorrect').hide();
 		$('#questionText').html('9.');
 		$('#titleText').html('WHAT WAS THE ANSWER TO QUESTION 2?').css({'font-size':'50px'});
-		$('#q1').html('THAT ONE →');
-		$('#q2').html('THAT ONE ↙');
-		$('#q3').html('THAT ONE ↑');
-		$('#q4').html('THIS ONE').css({'font-size':'50px'});
+		$('#q1').html('THAT ONE →').css({'font-family':'arial','font-size':'30px'});
+		$('#q2').html('THAT ONE ↙').css({'font-family':'arial','font-size':'30px'});
+		$('#q3').html('THAT ONE ↑').css({'font-family':'arial','font-size':'30px'});
+		$('#q4').html('THIS ONE').css({'font-family':'arial','font-size':'40px'});
 		$('#liveText').html(liveCount);
 		$('#skips').html('<i class="fa fa-arrow-right aSkip" aria-hidden="true"></i>'.repeat(skips) + '<i class="fa fa-arrow-right" aria-hidden="true"></i>'.repeat(noSkips));
 		checkForLives()
 	}
 	function lvTen(){
+		$('#q1,#q2,#q3,#q4').css({'font-size':'50px','font-family':'Patrick Hand SC, cursive;'});
+		$('#leftMouseHere,#rightMouseHere,#notThis1,#notThis2,#notThis3,#notThis4,#notThis5,#notThis6,#hiddenCorrect,.sec,#tenOne,#tenTwo,#tenThree,#tenFour,#tenFive').remove();
 		$('#questionText').html('10.');
 		$('#titleText').html('WHICH ONE IS FOOD?').css({'font-size':'50px'});
 		$('.qContainer').hide();
-		$('#bottom').before('<div id="tenOne><i class="fa fa-globe" aria-hidden="true"></i></div><div id="tenTwo><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Tooth_icon_001.svg/477px-Tooth_icon_001.svg.png" alt="teeth icon"></div><div id="tenThree><i class="fa fa-eye" aria-hidden="true"></i></div><div id="tenFour><img src="http://freeflaticons.com/wp-content/uploads/2014/10/chair-141466725248nkg.png" alt="chair icon"></div><div id="tenFive><i class="fa fa-pencil" aria-hidden="true"></i></div>')
+		$('#bottom').before('<div class="sec"><i class="fa fa-globe" aria-hidden="true" id="tenOne"></i></div><div class="sec"><img id="tenTwo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Tooth_icon_001.svg/477px-Tooth_icon_001.svg.png" alt="teeth icon"></div><div class="sec"><i class="fa fa-eye" id="tenThree" aria-hidden="true"></i></div><div class="sec"><img id="tenFour" src="http://freeflaticons.com/wp-content/uploads/2014/10/chair-141466725248nkg.png" alt="chair icon"></div><div class="sec"><i id="tenFive" class="fa fa-pencil" aria-hidden="true"></i></div>')
 		$('#liveText').html(liveCount);
 		$('#skips').html('<i class="fa fa-arrow-right aSkip" aria-hidden="true"></i>'.repeat(skips) + '<i class="fa fa-arrow-right" aria-hidden="true"></i>'.repeat(noSkips));
 		checkForLives()
 	}
 	function lvEnd(){
-		
+		$('body').append('<div id="win">YOU WON!!</div>')
 	}
 	function gameOver(){
 		$('#gameOverScreen').show();
 		$('#game').css({'overflow':'hidden'});
 	}
 	$('#againGameOver').click(function(){
-		level = 1;
-		liveCount = 3;
-		noSkips = 7;
-		skips = 0;
-		roomLevel();
-		$('#gameOverScreen').hide();
+		restart();
+		//location.reload();
 	});
 	function checkForLives(){
 		if (liveCount <= 0){
@@ -339,19 +346,21 @@ $(document).ready(function () {
 		}
 		cantTouch = true;
 	});
-	$('#game').mouseenter(function(){
+	$('#game').mouseover(function(){
 		if (cantTouch == true){
 			if ($('#rightMouseHere').is(':hover')) {
 				return false;
 			} else if ($('#leftMouseHere').is(':hover')) {
+				level++;
+				roomLevel();
 				return false;
 			} loseLife();
 			lvFive()
+			cantTouch = false;
 		}
 	});
 	$(document).on('mouseenter','#leftMouseHere',function(){
-		level++;
-		roomLevel();
+		
 	});
 	$(document).on('click','#notThis1,#notThis2,#notThis3,#notThis4,#notThis5,#notThis6',function(){
 		loseLife();
@@ -365,6 +374,11 @@ $(document).ready(function () {
 		level++;
 		skips++;
 		noSkips--;
+		lvTen();
 		roomLevel();
+	});
+	$(document).on('click','#tenOne,#tenThree,#tenFour,#tenFive',function(){
+		loseLife()
+		lvTen();
 	});
 });
